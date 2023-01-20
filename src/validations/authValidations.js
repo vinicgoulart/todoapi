@@ -1,5 +1,5 @@
 exports.validateLogin = (req, res, next) => {
-    if(req.body.email === undefined || req.body.password === undefined){
+    if(req.body.email === null || req.body.email === undefined || req.body.password === null || req.body.password === undefined){
         res.status(400).json({ status: 'Failed', message: 'Both email and password fields must be filled!' });
         return;
     }

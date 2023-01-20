@@ -9,7 +9,7 @@ Router.post('/login', authValidations.validateLogin, authController.login);
 
 Router.post('/register', authValidations.validateRegister, authController.register); 
 
-Router.post('/change-password/:id', authMiddleware.verifyAuth, authValidations.validateChangePass, authController.updatePassword);
+Router.post('/change-password/', authMiddleware.verifyAuth, authValidations.validateChangePass, authController.updatePassword);
 
 Router.get('/logout', authMiddleware.verifyAuth, authController.logout);
 

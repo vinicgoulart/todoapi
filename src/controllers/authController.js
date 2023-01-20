@@ -35,7 +35,7 @@ exports.register = async (req, res) => {
         nickname: req.body.nickname,
         email: req.body.email,
         password: req.body.password,
-        desc: req.body.desc,
+        description: req.body.desc,
         createdAt: Date.now()
     });
 
@@ -48,7 +48,7 @@ exports.register = async (req, res) => {
 };
 
 exports.updatePassword = async (req, res) => {
-    const query = { _id: req.params.id };
+    const query = { _id: req.session._id };
     
     try{
         const salt = await bcrypt.genSalt(10);

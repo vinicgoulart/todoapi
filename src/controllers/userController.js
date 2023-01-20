@@ -2,7 +2,7 @@ const User = require('../models/userModel');
 
 exports.index = async (req, res) => {
     try{
-        const allUser = await User.find({}, { _id: 1, nickname: 1, email: 1, name: 1, desc: 1 });
+        const allUser = await User.find({}, { _id: 1, nickname: 1, email: 1, name: 1, description: 1 });
         res.status(200).json({ status: 'Success', user: allUser });
     }catch(error){
         res.status(500).json({ status: 'Failed', message: error.message });
@@ -13,7 +13,7 @@ exports.oneUser = async (req, res) => {
     const query = { _id: req.params.id };
 
     try{
-        const oneUser = await User.findOne(query, { _id: 1, nickname: 1, email: 1, name: 1, desc: 1 });
+        const oneUser = await User.findOne(query, { _id: 1, nickname: 1, email: 1, name: 1, description: 1 });
         res.status(200).json({ status: 'Success', user: oneUser });
     }catch(error){
         res.status(500).json({ status: 'Failed', message: error.message });
@@ -24,7 +24,7 @@ exports.updateUser = async (req, res) => {
     const query = { _id: req.params.id };
     const newData = {
         name: req.body.name,
-        desc: req.body.desc
+        description: req.body.desc
     };
 
     try{
